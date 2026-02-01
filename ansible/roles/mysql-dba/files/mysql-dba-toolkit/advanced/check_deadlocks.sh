@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mysql <<EOF
+SHOW ENGINE INNODB STATUS\G
+EOF | grep -A 50 "LATEST DETECTED DEADLOCK"

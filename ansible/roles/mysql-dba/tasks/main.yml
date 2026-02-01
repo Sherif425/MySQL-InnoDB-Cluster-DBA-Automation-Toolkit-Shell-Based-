@@ -1,0 +1,12 @@
+- name: Deploy DBA toolkit
+  copy:
+    src: mysql-dba-toolkit/
+    dest: /opt/mysql-dba-toolkit
+    mode: "0755"
+
+- name: Setup cron jobs
+  cron:
+    name: "Daily MySQL health check"
+    job: "/opt/mysql-dba-toolkit/main.sh status"
+    hour: 8
+    minute: 0

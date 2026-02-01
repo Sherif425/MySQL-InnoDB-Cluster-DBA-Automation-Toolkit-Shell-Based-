@@ -1,0 +1,13 @@
+mysql -e "
+SELECT
+  t.TABLE_SCHEMA,
+  t.TABLE_NAME,
+  t.TABLE_ROWS,
+  s.INDEX_NAME,
+  s.CARDINALITY
+FROM information_schema.TABLES t
+JOIN information_schema.STATISTICS s
+ON t.TABLE_NAME = s.TABLE_NAME
+WHERE s.CARDINALITY < 10
+AND t.TABLE_SCHEMA NOT IN ('mysql','sys');
+"

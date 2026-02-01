@@ -1,0 +1,4 @@
+- hosts: mysql_clusters
+  become: yes
+  roles:
+    - mysql_dba

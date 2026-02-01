@@ -1,0 +1,3 @@
+mysql -e "
+SHOW ENGINE INNODB STATUS\G
+"
